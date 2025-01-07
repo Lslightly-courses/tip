@@ -3,4 +3,4 @@
 	url = https://github.com/Lslightly/tipc-passes.git
 [submodule "tipc"]
 	path = tipc
-	url = https://github.com/ustc-pldpa/tipc.git
+	url = https://github.com/Lslightly/tipc.git

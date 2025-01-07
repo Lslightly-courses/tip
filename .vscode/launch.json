@@ -1,0 +1,62 @@
+{
+    "configurations": [
+        {
+            "name": "(gdb) 启动",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/usr/bin/opt-14",
+            "args": [
+                "-enable-new-pm=0",
+                "-load",
+                "/tip/tipc-passes/build/src/intervalrangepass/irpass.so",
+                "-mem2reg",
+                "-irpass",
+                "-intervalrange-debug",
+                "<",
+                "_debug.tip.bc",
+                ">/dev/null",
+                "2>_debug.irpass"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/tipc-passes/src/intervalrangepass/test/",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "PreLaunch"
+        },
+        {
+            "name": "test debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/tipc-passes/build/src/test/intervaltests",
+            "stopAtEntry": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "cwd": "${workspaceFolder}/tipc-passes/src/test/",
+            "preLaunchTask": "Compile Passes"
+        }
+    ],
+}

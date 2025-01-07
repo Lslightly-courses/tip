@@ -1,0 +1,6 @@
+[submodule "tipc-passes"]
+	path = tipc-passes
+	url = https://github.com/Lslightly/tipc-passes.git
+[submodule "tipc"]
+	path = tipc
+	url = https://github.com/ustc-pldpa/tipc.git

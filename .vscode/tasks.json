@@ -1,0 +1,52 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate bc",
+            "type": "shell",
+            "command": "/tip/tipc/build/src/tipc -do ${input:TestName}.tip -o _debug.tip.bc; llvm-dis-14 _debug.tip.bc",
+            "options": {
+                "cwd": "${workspaceFolder}/tipc-passes/src/intervalrangepass/test/"
+            }
+        },
+        {
+            "label": "Compile Passes",
+            "type": "shell",
+            "command": "cmake --build build",
+            "options": {
+                "cwd": "${workspaceFolder}/tipc-passes/"
+            },
+        },
+        {
+            "label": "Clear _debug dir",
+            "type": "shell",
+            "command": "rm -rf _debug/mem2reg/*",
+            "options": {
+                "cwd": "${workspaceFolder}/tipc-passes/src/intervalrangepass/test/"
+            }
+        },
+        {
+            "label": "PreLaunch",
+            "dependsOn": [
+                "Generate bc",
+                "Compile Passes",
+                "Clear _debug dir"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "TestName",
+            "type": "pickString",
+            "options": [
+                "interval1",
+                "interval2",
+                "interval3",
+                "interval4",
+                "interval5"
+            ],
+            "default": "interval1",
+            "description": "Test name"
+        }
+    ]
+}

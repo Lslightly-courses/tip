@@ -25,5 +25,5 @@ cd /tip/tipc-passes/src/intervalrangepass/
 pytest interval_test.py
 ```
 
-[.vscode/tasks.json](./.vscode/tasks.json) and [launch.json](.vscode/launch.json) might be helpful.
+[.vscode/tasks.json](./.vscode/tasks.json) and [.vscode/launch.json](.vscode/launch.json) might be helpful.
 
